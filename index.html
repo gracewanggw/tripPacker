@@ -1,0 +1,242 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Planner</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <h1>
+      <span class="travel">Travel</span><span class="planner">Planner</span>
+    </h1>
+    <main>
+      <div class="container">
+        <div>
+          <p class="whatToPack">
+            Find out what to pack based off the weather during your trip!
+          </p>
+        </div>
+        <div class="row">
+          <!-- Select Travel Destination -->
+          <div class="selectDestination">
+            <div>
+              <label class="destinationLabel">Select Travel Destination</label>
+            </div>
+            <select class="destinationSelection" id="destination">
+              <option></option>
+              <option value="Anchorage">Anchorage</option>
+              <option value="Austin">Austin</option>
+              <option value="Baltimore">Baltimore</option>
+              <option value="Boston">Boston</option>
+              <option value="Charlotte">Charlotte</option>
+              <option value="Chicago">Chicago</option>
+              <option value="Columbus">Columbus</option>
+              <option value="Dallas">Dallas</option>
+              <option value="Denver">Denver</option>
+              <option value="Detroit">Detroit</option>
+              <option value="Houston">Houston</option>
+              <option value="Jacksonville">Jacksonville</option>
+              <option value="Las Vegas">Las Vegas</option>
+              <option value="Los Angeles">Los Angeles</option>
+              <option value="Miami">Miami</option>
+              <option value="Milan">Milan</option>
+              <option value="New Orleans">New Orleans</option>
+              <option value="Newark">Newark</option>
+              <option value="Oakland">Oakland</option>
+              <option value="Paris">Paris</option>
+              <option value="Philadelphia">Philadelphia</option>
+              <option value="Phoenix">Phoenix</option>
+              <option value="Pittsburg">Pittsburg</option>
+              <option value="Portland">Portland</option>
+              <option value="Princeton">Princeton</option>
+              <option value="Raleigh">Raleign</option>
+              <option value="Richmond">Richmond</option>
+              <option value="Sacramento">Sacramento</option>
+              <option value="San Diego">San Diego</option>
+              <option value="Seattle">Seattle</option>
+              <option value="Tampa">Tampa</option>
+              <option value="Tulsa">Tulsa</option>
+              <option value="Washington">Washington</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="inline">
+          <!-- Select Start Day of Travel -->
+          <div class="selectStart">
+            <div>
+              <label class="monthlabel"
+                >Select Start Month
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label
+              >
+            </div>
+            <select class="startMonthSelection" id="startMonth">
+              <option></option>
+              <option value="01">January</option>
+              <option value="02">February</option>
+              <option value="03">March</option>
+              <option value="04">April</option>
+              <option value="05">May</option>
+              <option value="06">June</option>
+              <option value="07">July</option>
+              <option value="08">August</option>
+              <option value="09">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+          </div>
+          <!-- Select end day of travel -->
+
+          <div class="selectEnd">
+            <div>
+              <label class="endMonthlabel"
+                >Select End Month
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label
+              >
+            </div>
+            <select class="endMonthSelection" id="endMonth">
+              <option></option>
+              <option value="01">January</option>
+              <option value="02">February</option>
+              <option value="03">March</option>
+              <option value="04">April</option>
+              <option value="05">May</option>
+              <option value="06">June</option>
+              <option value="07">July</option>
+              <option value="08">August</option>
+              <option value="09">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+          </div>
+        </div>
+        <div class="inline">
+          <!-- Select Start Day of Travel -->
+          <div class="selectStart">
+            <div>
+              <label class="daylabel"
+                >Select Start Day &nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label
+              >
+            </div>
+            <select class="day-selection" id="startDay">
+              <option value="00"></option>
+              <option value="01">1</option>
+              <option value="02">2</option>
+              <option value="03">3</option>
+              <option value="04">4</option>
+              <option value="05">5</option>
+              <option value="06">6</option>
+              <option value="07">7</option>
+              <option value="08">8</option>
+              <option value="09">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+            </select>
+          </div>
+          <!-- Select end day of travel -->
+
+          <div class="selectEnd">
+            <div>
+              <label class="enddaylabel"
+                >Select End Day
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label
+              >
+            </div>
+            <select class="endday-selection" id="endDay">
+              <option> </option>
+              <option value="00"></option>
+              <option value="01">1</option>
+              <option value="02">2</option>
+              <option value="03">3</option>
+              <option value="04">4</option>
+              <option value="05">5</option>
+              <option value="06">6</option>
+              <option value="07">7</option>
+              <option value="08">8</option>
+              <option value="09">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+            </select>
+          </div>
+        </div>
+
+        <script>
+          const init = function () {
+            let btn = document.querySelector("#item1");
+
+            btn.addEventListener("click", function () {
+              window.document.location =
+                "result.html?destination=" +
+                destination.value +
+                "&startMonth=" +
+                startMonth.value +
+                "&endMonth=" +
+                endMonth.value +
+                "&startDay=" +
+                startDay.value +
+                "&endDay=" +
+                endDay.value;
+            });
+          };
+
+          document.addEventListener("DOMContentLoaded", function () {
+            init();
+          });
+        </script>
+        <div class="buttonStyle">
+          <button class="button" id="item1">Find out what to pack!</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

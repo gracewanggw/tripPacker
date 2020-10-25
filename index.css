@@ -1,0 +1,209 @@
+h1 {
+  margin-bottom: 1%;
+  margin-bottom: 0%;
+  text-align: center;
+  padding-top: 30px;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Karla", sans-serif;
+  font-size: 6vw;
+}
+
+.travel {
+  color: #fb5607;
+}
+
+.planner {
+  color: #3a86ff;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+}
+
+.container {
+  border-radius: 5px;
+  padding-left: 460px;
+  padding-right: 460px;
+  padding-top: 20px;
+  padding-left: 465px;
+  padding-right: 465px;
+  padding-top: 10px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-around;
+}
+
+.whatToPack {
+  font-family: "Open Sans", sans-serif;
+  font-family: "Karla", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 25px;
+  text-align: center;
+  color: #ffffff;
+  background: #fb5607;
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.destinationLabel {
+  font-family: "Open Sans", sans-serif;
+  font-family: "Karla", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  color: #c8c8c8;
+}
+
+.destinationSelection {
+  float: left;
+  width: 100%;
+  margin-top: 7px;
+  background: #ffffff;
+  border: 5px solid #ff006e;
+  box-sizing: border-box;
+  margin-bottom: 0px;
+}
+
+.monthlabel {
+  font-family: "Open-Sans", sans-serif;
+  font-family: "Karla", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  color: #c8c8c8;
+}
+
+.startMonthSelection {
+  background: #ffffff;
+  border: 5px solid #ff006e;
+  box-sizing: border-box;
+  margin-top: 7px;
+}
+
+.endMonthlabel {
+  font-family: "Open-Sans", sans-serif;
+  font-family: "Karla", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  width: 100%;
+  color: #c4c4c4;
+  float: right;
+}
+
+.endMonthSelection {
+  border: 5px solid #ff006e;
+  box-sizing: border-box;
+  float: right;
+  margin-top: 7px;
+}
+
+/* days */
+
+.daylabel {
+  font-family: "Open-Sans", sans-serif;
+  font-family: "Karla", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  color: #c8c8c8;
+}
+
+.day-selection {
+  background: #ffffff;
+  border: 5px solid #ff006e;
+  box-sizing: border-box;
+}
+
+.enddaylabel {
+  font-family: "Open-Sans", sans-serif;
+  font-family: "Karla", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  width: 100%;
+  color: #c4c4c4;
+  float: right;
+}
+
+.endday-selection {
+  border: 5px solid #ff006e;
+  box-sizing: border-box;
+  float: right;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+select {
+  width: 100%;
+  padding: 16px;
+  border: 5px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.select {
+  font-family: "Open-Sans", sans-serif;
+  font-family: "Karla", sans-serif;
+  font-size: 20px;
+}
+
+.inline {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  float: left;
+  width: 100%;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-top: 20px;
+}
+
+.startInline {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  float: left;
+  width: 100%;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-top: 20px;
+}
+
+.button {
+  background-color: #3a86ff;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  /* display: inline-block; */
+  font-size: 16px;
+  border-radius: 10px;
+  margin-top: 310px;
+  font-family: "Open-Sans", sans-serif;
+  font-family: "Karla", sans-serif;
+  font-weight: bold;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+@media screen and (max-width: 1280px) {
+  .container {
+    padding: 50px;
+  }
+}

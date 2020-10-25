@@ -1,0 +1,137 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planner</title>
+    <link href="result.css" rel="stylesheet" type="text/css" />
+    <script src="index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <h1>
+        <span class="travel">Travel</span><span class="planner">Planner</span></h1>
+
+    <div class="result">
+
+
+        <div class="weather">
+            <strong class="label">Here's what the weather looks like for your trip:</strong>
+            <br><img id="weatherIcon" src="https://cdn.glitch.com/90f6ecee-11d8-41ce-b57d-4955ea037791%2FCloudy%20(2).png?v=1595664532280">
+            </br>
+            <p><strong class="label "><em>Average Temperature: </em></br></strong></p>
+            <p id="temp ">Loading...</p>
+            <p><strong class="label "> <em>Average Precipitation: </em></strong></p>
+            <p id="precipitation ">Loading...</p>
+            <p><strong class="label "> <em>Snow: </em></strong></p>
+            <p id="snow ">Loading...</p>
+            <p> <strong class="label ">  <em>Sunlight</em></strong> </p>
+            <p id="sun ">Loading...</p>
+        </div>
+
+        <div class="weather list ">
+            <strong class="label ">Here's what you should pack for your trip:</strong>
+            <p id="packing-list "></p>
+        </div>
+
+    </div>
+
+    <script>
+      async function weatherResults(){
+        var tempElement = document.getElementById("temp ");
+        var precipElement = document.getElementById("precipitation ");
+        var snowElement = document.getElementById("snow ");
+        var sunElement = document.getElementById("sun ");
+        //getting weather data
+        arrWeatherData = await getWeatherData(destination, year, startDate, endDate);
+        //changing temp content
+        tempElement.innerHTML = arrWeatherData[0] + ' °C' + ' / ' + Math.round((arrWeatherData[0]*(9/5) + 32)*10)/10 + " °F";
+        //changing precipitaiton content
+        if(arrWeatherData[1] == 0){
+          precipElement.innerHTML = 'No Precipitation';
+        }
+        else if(Number.isNaN(arrWeatherData[1])){
+          precipElement.innerHTML = 'Precipitation Data Unavailable';
+        }
+        else{
+          precipElement.innerHTML = arrWeatherData[1] + " mm" + ' / ' + Math.round((arrWeatherData[1]/25.4)*10)/10 + " in";
+        }
+        // changing snow content
+        if(arrWeatherData[2] == 0){
+          snowElement.innerHTML = 'No Snow';
+        }
+        else if(Number.isNaN(arrWeatherData[2])){
+          snowElement.innerHTML = 'Snow Data Unavailable';
+        }
+        else{
+          snowElement.innerHTML = arrWeatherData[2] + " mm" + ' / ' + Math.round((arrWeatherData[2]/25.4)*10)/10 + " in";
+        }
+        // changing sunlight content
+        if(arrWeatherData[3] == 0){
+          sunElement.innerHTML = 'No Sunlight';
+        }
+        else if(Number.isNaN(arrWeatherData[3])){
+          sunElement.innerHTML = 'Sunlight Data Unavailable';
+        }
+        else{
+          sunElement.innerHTML = arrWeatherData[3] + " min";
+        }
+      }
+
+      //display our packing list
+      async function packingResults(){
+        var i = 0
+        var arrStuff = await getPackingList(destination, year, startDate, endDate);
+        for(i=0; i<arrStuff.length; i++){
+  	       var node = document.createElement("p");
+           var item = arrStuff[i];
+  	       var textnode = document.createTextNode(item);
+  	       node.appendChild(textnode);
+ 	         document.getElementById("packing-list ").appendChild(node);
+         }
+      }
+
+      async function changeIconRainy() {
+        const weatherArr = await getWeatherData(destination, year, startDate, endDate);
+        const precip = weatherArr[1];
+        if (precip >= 10) {
+          document.getElementById("weatherIcon").src =
+            "https://cdn.glitch.com/796c59b7-f73c-4f06-823f-b1ab2a29e456%2FRainy.png?v=1596007317562";
+        } else if (precip >= 30) {
+          document.getElementById("weatherIcon").src =
+            "https://cdn.glitch.com/796c59b7-f73c-4f06-823f-b1ab2a29e456%2FRainy.png?v=1596007317562";
+        }
+      }
+
+      async function changeIconSnowy() {
+        const weatherArr = await getWeatherData(destination, year, startDate, endDate);
+        const amtSnow = weatherArr[2];
+        if (amtSnow >= 10) {
+          document.getElementById("weatherIcon").src =
+            "https://cdn.glitch.com/796c59b7-f73c-4f06-823f-b1ab2a29e456%2FSnowy.png?v=1596007316427";
+        } else if (amtSnow >= 30) {
+          document.getElementById("weatherIcon").src =
+            "https://cdn.glitch.com/796c59b7-f73c-4f06-823f-b1ab2a29e456%2FSnowy.png?v=1596007316427";
+        }
+      }
+
+      async function changeIconSunny() {
+        const weatherArr = await getWeatherData(destination, year, startDate, endDate);
+        const amtSun = weatherArr[3];
+        if (amtSun >= 0) {
+          document.getElementById("weatherIcon").src =
+            "https://cdn.glitch.com/796c59b7-f73c-4f06-823f-b1ab2a29e456%2FClear%20(daytime).png?v=1596007377440";
+        }
+      }
+      changeIconRainy();
+      changeIconSnowy();
+      changeIconSunny();
+      weatherResults();
+      packingResults();
+    </script>
+</body>
+</html>
