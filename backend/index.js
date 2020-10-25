@@ -1,25 +1,29 @@
 const apiKey = "fFrg4ngDhW8CjxuektLK152hc9gyIQjf";
 
+//passing params from user selection
 const params = new URLSearchParams(window.location.search);
 
+//storing user selected parameters into variables
 const year = 2019;
 const destination = params.get("destination");
 const startMonth = params.get("startMonth");
 const endMonth = params.get("endMonth");
 const startDay = params.get("startDay");
 const endDay = params.get("endDay");
-
 const startDate = `-${startMonth}-${startDay}`;
 const endDate = `-${endMonth}-${endDay}`;
 
-// Get an array with StationID
-const stationID = [];
-let path;
 
+const stationID = []; //Array of stationIDs
+let path; // path for the search query
+
+//helper method to add id to the stationID array
 function addStationID(item) {
   const { id } = item;
   stationID.push(id);
 }
+
+//returns the list of stationIDs for the destination selected by the user
 async function getStationID(destination) {
   path = `stations/search?query=${destination}`;
   const response = await fetch(`https://api.meteostat.net/v2/${path}`, {
@@ -34,7 +38,7 @@ async function getStationID(destination) {
   return await stationID;
 }
 
-// Defining variables
+// Defining weather variables that will be used
 const dates = [];
 const temp = [];
 const precip = [];
@@ -47,9 +51,9 @@ let avgPrecip;
 let avgSnow;
 let avgSun;
 let sum = 0;
-let i = 0;
+let i = 0; // for iterators
 
-// Get an array with Weather Data
+// Helper method to add weather data into array
 function addWeatherData(item) {
   const { date } = item;
   const avgt = item.tavg;
@@ -68,11 +72,14 @@ function addWeatherData(item) {
   dates.push(date);
   temp.push(avgt);
 }
+
+// returns the average weather data for the destination, year, and date selected by user
 async function getWeatherData(destination, year, startDate, endDate) {
   const ID = await getStationID(destination);
-  const myID = ID[1];
-  var year = 2019;
-  for (year = 2019; year >= 2015; year--) {
+  const myID = ID[1]; // uses the first stationID in stationID array
+  // iterates through years between the year inputted by user and 2015
+  // adds the weather data for each year to its corresponding array
+  for (year; year >= 2015; year--) {
     path = `station=${myID}&start=${year}${startDate}&end=${year}${endDate}`;
     const response = await fetch(
       `https://api.meteostat.net/v2/stations/daily?${path}`,
@@ -85,7 +92,7 @@ async function getWeatherData(destination, year, startDate, endDate) {
     );
     const str2 = await response.json();
     const obj2 = JSON.parse(JSON.stringify(str2));
-    obj2.data.forEach(addWeatherData);
+    obj2.data.forEach(addWeatherData); 
   }
 
   // Get Average Temp
